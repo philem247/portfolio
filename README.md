@@ -36,3 +36,4 @@ git remote add origin https://github.com/philem247/portfolio.git
 git push -u origin main
 ```
 3. Import the repo into your [Vercel Dashboard](https://vercel.com).
+
