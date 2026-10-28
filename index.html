@@ -12,12 +12,15 @@
   <meta property="og:type" content="website">
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230f1117'/><text x='50%' y='68%' font-family='sans-serif' font-weight='800' font-size='56' fill='%23ffffff' text-anchor='middle'>P</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23090a0f'/><text x='50%' y='68%' font-family='sans-serif' font-weight='800' font-size='56' fill='%23ffffff' text-anchor='middle'>P</text></svg>">
 
   <!-- Typography: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Hugeicons Font CDN -->
+  <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css" />
 
   <style>
     :root {
@@ -29,7 +32,6 @@
       --text: #f4f5f8;
       --text-muted: #8e93a4;
       --accent: #3b82f6;
-      --accent-soft: rgba(59, 130, 246, 0.12);
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
@@ -52,12 +54,25 @@
       padding: 0 20px;
     }
 
+    /* Hugeicons styling helpers */
+    .hgi-stroke {
+      font-size: 1.15rem;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+    }
+    .hgi-sm {
+      font-size: 0.92rem;
+    }
+
     /* Header */
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(9, 10, 15, 0.85);
+      background: rgba(9, 10, 15, 0.88);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
@@ -322,20 +337,13 @@
     .service-card h3 {
       font-size: 1.15rem;
       font-weight: 600;
-      margin-bottom: 4px;
-    }
-    .service-rate {
-      font-family: var(--font-mono);
-      font-size: 0.88rem;
-      color: #60a5fa;
-      margin-bottom: 14px;
-      font-weight: 500;
+      margin-bottom: 10px;
     }
     .service-desc {
       color: var(--text-muted);
       font-size: 0.92rem;
       line-height: 1.6;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       flex: 1;
     }
     .service-points {
@@ -344,15 +352,16 @@
       color: #b1b5c4;
     }
     .service-points li {
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       position: relative;
-      padding-left: 18px;
+      padding-left: 22px;
     }
-    .service-points li::before {
-      content: "•";
-      color: var(--text-muted);
+    .service-points li i {
       position: absolute;
       left: 0;
+      top: 3px;
+      color: #60a5fa;
+      font-size: 0.95rem;
     }
 
     /* Process / Terms */
@@ -425,22 +434,6 @@
     }
     footer a:hover { color: var(--text); }
 
-    /* Toast */
-    #toast {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: #ffffff;
-      color: #090a0f;
-      font-weight: 600;
-      font-size: 0.88rem;
-      padding: 10px 18px;
-      border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-      display: none;
-      z-index: 100;
-    }
-
     @media (max-width: 600px) {
       .hero { padding: 48px 0 36px; }
       .btn-group { flex-direction: column; width: 100%; }
@@ -471,6 +464,7 @@
     <p class="hero-lead">I build responsive websites, web applications, and custom messaging bots. Focused on clean user experience, solid performance, and dependable delivery.</p>
     <div class="btn-group">
       <a class="btn primary" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20I%20have%20a%20project%20I%27d%20like%20to%20discuss." target="_blank" rel="noopener">
+        <i class="hgi-stroke hgi-whatsapp"></i>
         Chat on WhatsApp
       </a>
       <a class="btn" href="#work">
@@ -503,8 +497,14 @@
             <span>React</span><span>Paystack Checkout</span><span>WhatsApp Ordering</span><span>Responsive</span>
           </div>
           <div class="project-links">
-            <a class="primary-link" href="https://teda-foods.vercel.app" target="_blank" rel="noopener">Visit Live Site ↗</a>
-            <a href="https://github.com/philem247/teda-foods" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="primary-link" href="https://teda-foods.vercel.app" target="_blank" rel="noopener">
+              Visit Live Site
+              <i class="hgi-stroke hgi-arrow-up-right-01 hgi-sm"></i>
+            </a>
+            <a href="https://github.com/philem247/teda-foods" target="_blank" rel="noopener">
+              <i class="hgi-stroke hgi-github"></i>
+              GitHub
+            </a>
           </div>
         </div>
       </div>
@@ -527,8 +527,14 @@
             <span>Node.js</span><span>Baileys</span><span>PM2</span><span>Automated Messaging</span>
           </div>
           <div class="project-links">
-            <a class="primary-link" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20can%20you%20show%20me%20a%20demo%20of%20your%20WhatsApp%20bots%3F" target="_blank" rel="noopener">Request Bot Demo ↗</a>
-            <a href="https://github.com/philem247/wcg-bot" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="primary-link" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20can%20you%20show%20me%20a%20demo%20of%20your%20WhatsApp%20bots%3F" target="_blank" rel="noopener">
+              Request Bot Demo
+              <i class="hgi-stroke hgi-arrow-up-right-01 hgi-sm"></i>
+            </a>
+            <a href="https://github.com/philem247/wcg-bot" target="_blank" rel="noopener">
+              <i class="hgi-stroke hgi-github"></i>
+              GitHub
+            </a>
           </div>
         </div>
       </div>
@@ -548,8 +554,14 @@
             <span>React 19</span><span>Tailwind CSS</span><span>Web Audio API</span><span>Vite</span>
           </div>
           <div class="project-links">
-            <a class="primary-link" href="https://focus-flowff.vercel.app" target="_blank" rel="noopener">Visit Live Site ↗</a>
-            <a href="https://github.com/philem247" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="primary-link" href="https://focus-flowff.vercel.app" target="_blank" rel="noopener">
+              Visit Live Site
+              <i class="hgi-stroke hgi-arrow-up-right-01 hgi-sm"></i>
+            </a>
+            <a href="https://github.com/philem247" target="_blank" rel="noopener">
+              <i class="hgi-stroke hgi-github"></i>
+              GitHub
+            </a>
           </div>
         </div>
       </div>
@@ -569,8 +581,10 @@
             <span>React Native / Web</span><span>Expo Speech</span><span>Supabase</span><span>Dictionary API</span>
           </div>
           <div class="project-links">
-            <a class="primary-link" href="https://spell-forgee.vercel.app" target="_blank" rel="noopener">Visit Live Site ↗</a>
-            <a href="https://github.com/philem247/SabiSpell-V1" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="primary-link" href="https://spell-forgee.vercel.app" target="_blank" rel="noopener">
+              Visit Live Site
+              <i class="hgi-stroke hgi-arrow-up-right-01 hgi-sm"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -581,41 +595,38 @@
   <!-- Services -->
   <section id="services">
     <div class="section-head">
-      <h2>Services &amp; Pricing</h2>
-      <p>Straightforward rates. Send your brief or requirements for a quick quote.</p>
+      <h2>Services</h2>
+      <p>Clean engineering for founders, creators, and agency partners looking for dependable delivery.</p>
     </div>
 
     <div class="services-grid">
       <div class="service-card">
         <h3>Landing Pages</h3>
-        <div class="service-rate">From ₦25,000</div>
-        <p class="service-desc">Single-page websites built for clarity and speed. Optimized for mobile viewports and direct conversion.</p>
+        <p class="service-desc">Single-page websites built for clarity and speed. Optimized for mobile viewports, fast loading, and direct user action.</p>
         <ul class="service-points">
-          <li>Mobile-first responsive layout</li>
-          <li>WhatsApp or contact button integration</li>
-          <li>Free deployment on Vercel</li>
+          <li><i class="hgi-stroke hgi-tick-02"></i> Mobile-first responsive layout</li>
+          <li><i class="hgi-stroke hgi-tick-02"></i> WhatsApp or contact button integration</li>
+          <li><i class="hgi-stroke hgi-tick-02"></i> Deployment on high-speed global CDN</li>
         </ul>
       </div>
 
       <div class="service-card">
-        <h3>Multi-Page Websites</h3>
-        <div class="service-rate">₦15,000 / page</div>
-        <p class="service-desc">Multi-page sites and web applications with structured content, forms, and payment checkouts where required.</p>
+        <h3>Multi-Page Websites &amp; Web Apps</h3>
+        <p class="service-desc">Structured sites and web applications with product catalogs, dynamic forms, backend databases, and payment checkouts.</p>
         <ul class="service-points">
-          <li>Custom forms &amp; payment gateway setup</li>
-          <li>Structured navigation &amp; clean code</li>
-          <li>2 rounds of revisions included</li>
+          <li><i class="hgi-stroke hgi-tick-02"></i> Custom forms &amp; payment gateway setup</li>
+          <li><i class="hgi-stroke hgi-tick-02"></i> Clean, structured navigation &amp; architecture</li>
+          <li><i class="hgi-stroke hgi-tick-02"></i> Multiple revision rounds included</li>
         </ul>
       </div>
 
       <div class="service-card">
         <h3>WhatsApp &amp; Telegram Bots</h3>
-        <div class="service-rate">Priced by features</div>
-        <p class="service-desc">Automated chat workflows that respond to customer inquiries, send automated alerts, or run interactive group commands.</p>
+        <p class="service-desc">Automated chat workflows that respond to customer inquiries, dispatch real-time alerts, or run interactive group commands.</p>
         <ul class="service-points">
-          <li>Automated menu &amp; reply flows</li>
-          <li>Order notifications &amp; alert routing</li>
-          <li>Setup, hosting guide, and support</li>
+          <li><i class="hgi-stroke hgi-tick-02"></i> Automated menu &amp; reply flows</li>
+          <li><i class="hgi-stroke hgi-tick-02"></i> Order notifications &amp; alert routing</li>
+          <li><i class="hgi-stroke hgi-tick-02"></i> Server setup, hosting guide, and support</li>
         </ul>
       </div>
     </div>
@@ -630,18 +641,18 @@
         </div>
         <div class="process-item">
           <div class="process-num">02</div>
-          <h4>Terms</h4>
-          <p>We confirm the scope and price. 50% deposit upfront before build starts.</p>
+          <h4>Scope &amp; Terms</h4>
+          <p>We confirm the deliverables, milestones, and timeline before build starts.</p>
         </div>
         <div class="process-item">
           <div class="process-num">03</div>
-          <h4>Preview</h4>
-          <p>You review a working live preview link and request your revisions.</p>
+          <h4>Working Preview</h4>
+          <p>You review a working live staging link and request adjustments.</p>
         </div>
         <div class="process-item">
           <div class="process-num">04</div>
-          <h4>Handoff</h4>
-          <p>Final sign-off, remaining balance, and deployment to your domain.</p>
+          <h4>Delivery</h4>
+          <p>Final sign-off, domain connection, and clean handoff of project files.</p>
         </div>
       </div>
     </div>
@@ -651,16 +662,19 @@
   <section id="contact">
     <div class="contact-card">
       <h2>Let's talk about your project</h2>
-      <p>Have an idea to build, or need a dependable developer for overflow client work? Send a message on WhatsApp or email.</p>
+      <p>Have an idea to build, or need a dependable developer for overflow client work? Reach out directly via WhatsApp or email.</p>
       <div class="btn-group">
         <a class="btn primary" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20I%20have%20a%20project%20I%27d%20like%20to%20discuss." target="_blank" rel="noopener">
-          Chat on WhatsApp (+234 913 712 3224)
+          <i class="hgi-stroke hgi-whatsapp"></i>
+          Chat on WhatsApp
         </a>
-        <button class="btn" onclick="copyEmail()">
-          Copy Email (philipadeoye247@gmail.com)
-        </button>
+        <a class="btn" href="mailto:philipadeoye247@gmail.com">
+          <i class="hgi-stroke hgi-mail-01"></i>
+          Send Email
+        </a>
         <a class="btn" href="https://github.com/philem247" target="_blank" rel="noopener">
-          GitHub Profile ↗
+          <i class="hgi-stroke hgi-github"></i>
+          GitHub Profile
         </a>
       </div>
     </div>
@@ -674,20 +688,8 @@
   </div>
 </footer>
 
-<div id="toast">Email copied to clipboard</div>
-
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  function copyEmail() {
-    navigator.clipboard.writeText('philipadeoye247@gmail.com').then(() => {
-      const toast = document.getElementById('toast');
-      toast.style.display = 'block';
-      setTimeout(() => { toast.style.display = 'none'; }, 2400);
-    }).catch(() => {
-      window.location.href = 'mailto:philipadeoye247@gmail.com';
-    });
-  }
 </script>
 </body>
 </html>
