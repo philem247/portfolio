@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Philip Adeoye — Full-Stack Web &amp; Automation Developer</title>
+  <meta name="description" content="Philip Adeoye builds high-performance responsive web applications, Paystack e-commerce integrations, and automated WhatsApp/Telegram bots for businesses and agencies.">
+  
+  <!-- OpenGraph Metadata (Critical for crisp WhatsApp/Twitter link previews) -->
+  <meta property="og:title" content="Philip Adeoye — Full-Stack Web &amp; Automation Developer">
+  <meta property="og:description" content="Snappy React web applications, Paystack payment workflows, and 24/7 automated WhatsApp &amp; Telegram bots.">
+  <meta property="og:type" content="website">
+
+  <!-- SVG Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%2307090e'/><text x='50%' y='68%' font-family='sans-serif' font-weight='900' font-size='56' fill='%2310b981' text-anchor='middle'>P</text></svg>">
+
+  <!-- Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #07090e;
+      --card: #0d121d;
+      --card-hover: #121826;
+      --border: #182032;
+      --border-bright: #2b3858;
+      --text: #f0f4fc;
+      --muted: #8a98b4;
+      --accent: #10b981;
+      --accent-glow: rgba(16, 185, 129, 0.15);
+      --accent-soft: rgba(16, 185, 129, 0.08);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 50% 0%, #142038 0%, transparent 60%),
+        linear-gradient(to bottom, transparent 0%, #07090e 100%);
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Navigation */
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(7, 9, 14, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 50;
+    }
+    header .wrap { display: flex; justify-content: space-between; align-items: center; }
+    .brand {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .status-badge {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      background: var(--accent-glow);
+      color: var(--accent);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      padding: 3px 10px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent);
+      animation: pulse 2.2s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      margin-left: 22px;
+      transition: color 0.15s ease;
+      font-weight: 500;
+    }
+    nav a:hover { color: var(--text); }
+
+    /* Hero */
+    .hero { padding: 88px 0 64px; }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-bottom: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-soft);
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    .hero h1 {
+      font-size: clamp(2.3rem, 5.8vw, 3.7rem);
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      max-width: 20ch;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 1.15rem;
+      max-width: 58ch;
+      margin: 22px 0 34px;
+      font-weight: 400;
+      line-height: 1.65;
+    }
+    
+    /* Buttons */
+    .btn-group { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-size: 0.94rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .btn.primary {
+      background: var(--accent);
+      color: #03140b;
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px rgba(16, 185, 129, 0.28);
+    }
+    .btn.primary:hover {
+      background: #0ea572;
+      box-shadow: 0 6px 30px rgba(16, 185, 129, 0.42);
+      transform: translateY(-2px);
+    }
+    .btn.secondary { background: var(--card); }
+    .btn.secondary:hover {
+      background: var(--card-hover);
+      border-color: var(--border-bright);
+      transform: translateY(-2px);
+    }
+
+    /* Sections */
+    section { padding: 68px 0; border-top: 1px solid var(--border); }
+    .section-header { margin-bottom: 38px; }
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    h2 { font-size: 1.95rem; font-weight: 700; letter-spacing: -0.025em; }
+    .sub { color: var(--muted); font-size: 1.02rem; margin-top: 6px; }
+
+    /* Grids & Cards */
+    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .card:hover {
+      border-color: var(--border-bright);
+      background: var(--card-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+    .card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.01em; }
+    .card p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; flex: 1; }
+
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 18px 0; }
+    .tags span {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--border);
+      color: #9cb0d4;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Card Footer & Links */
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .card a.link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+    .card a.link:hover { gap: 10px; text-decoration: underline; }
+    .badge-sub { font-family: var(--font-mono); font-size: 0.76rem; color: var(--muted); }
+
+    /* Services & Features */
+    .rate-badge {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: var(--accent);
+      margin: 8px 0 14px;
+      font-weight: 600;
+    }
+    ul.checklist { list-style: none; margin-top: 16px; font-size: 0.92rem; color: var(--muted); }
+    ul.checklist li { margin-bottom: 8px; position: relative; padding-left: 22px; }
+    ul.checklist li::before {
+      content: "✓";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* Process Steps */
+    .steps-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      transition: border-color 0.2s ease;
+    }
+    .step-card:hover { border-color: var(--border-bright); }
+    .step-num {
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .step-card h3 { font-size: 1.08rem; margin-bottom: 6px; }
+    .step-card p { font-size: 0.9rem; color: var(--muted); }
+
+    /* Contact Banner */
+    .contact-box {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(13, 18, 29, 0.9) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    /* Footer */
+    footer { padding: 48px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    footer a { color: var(--text); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    /* Toast Notification for Copying */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--accent);
+      color: #03140b;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      display: none;
+      z-index: 100;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
+      .btn-group { flex-direction: column; }
+      nav a { margin-left: 14px; font-size: 0.86rem; }
+      .contact-box { padding: 26px; }
+      footer .wrap { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#" class="brand">
+      Philip Adeoye
+      <span class="status-badge"><span class="status-dot"></span> Available for Q4 Builds</span>
+    </a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero Section -->
+  <div class="wrap hero">
+    <div class="hero-eyebrow">
+      <span>●</span> FULL-STACK WEB &amp; AUTOMATION DEVELOPER
+    </div>
+    <h1>I engineer fast websites and automated bots that convert.</h1>
+    <p>Specializing in modern React web applications, Paystack payment workflows, and high-uptime WhatsApp &amp; Telegram automation for businesses, creators, and agency partners.</p>
+    <div class="btn-group">
+      <a class="btn primary" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20I%20reviewed%20your%20portfolio%20and%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener">
+        Discuss a Project on WhatsApp →
+      </a>
+      <a class="btn secondary" href="#work">Explore Selected Work</a>
+    </div>
+  </div>
+
+  <!-- Work Section -->
+  <section id="work">
+    <div class="wrap">
+      <div class="section-header">
+        <div class="section-tag">// SELECTED BUILDS</div>
+        <h2>Production Work &amp; Functional Proof</h2>
+        <p class="sub">Shipped applications featuring real-world payments, audio synthesis, and automated messaging engines.</p>
+      </div>
+
+      <div class="grid">
+        <!-- Project 1: Teda Foods -->
+        <div class="card">
+          <h3>Teda Foods</h3>
+          <p>Online food ordering web platform engineered for a campus kitchen. Features an interactive meal selection tray, seamless Paystack card/transfer checkout, and direct WhatsApp order dispatch.</p>
+          <div class="tags">
+            <span>React</span><span>Paystack API</span><span>WhatsApp Checkout</span><span>Mobile-First</span>
+          </div>
+          <div class="card-footer">
+            <a class="link" href="https://teda-foods.vercel.app" target="_blank" rel="noopener">Live Demo ↗</a>
+            <span class="badge-sub">E-Commerce Flow</span>
+          </div>
+        </div>
+
+        <!-- Project 2: WhatsApp Automation -->
+        <div class="card">
+          <h3>GoalNotif &amp; Community Bots</h3>
+          <p>Production WhatsApp automation engine built with Node.js and the Baileys protocol. Dispatches live sports match updates, automated group announcements, and interactive trivia games with 24/7 PM2 uptime.</p>
+          <div class="tags">
+            <span>Node.js</span><span>Baileys (WA API)</span><span>PM2</span><span>Event Dispatcher</span>
+          </div>
+          <div class="card-footer">
+            <a class="link" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20can%20I%20see%20a%20demo%20of%20your%20WhatsApp%20bots%3F" target="_blank" rel="noopener">Request Bot Demo ↗</a>
+            <span class="badge-sub">Chat Automation</span>
+          </div>
+        </div>
+
+        <!-- Project 3: Focus Flow -->
+        <div class="card">
+          <h3>Focus Flow</h3>
+          <p>Minimalist deep-work companion web app. Integrates custom web audio synthesis soundscapes, Pomodoro interval algorithms, reactive tilt micro-interactions, and dark mode optimization.</p>
+          <div class="tags">
+            <span>React 19</span><span>Tailwind CSS</span><span>Web Audio API</span><span>Vite</span>
+          </div>
+          <div class="card-footer">
+            <a class="link" href="https://focus-flowff.vercel.app" target="_blank" rel="noopener">Live Demo ↗</a>
+            <span class="badge-sub">Productivity Suite</span>
+          </div>
+        </div>
+
+        <!-- Project 4: SpellForge / SabiSpell -->
+        <div class="card">
+          <h3>SpellForge</h3>
+          <p>Interactive spelling bee and vocabulary engine. Powered by on-device speech synthesis, dynamic dictionary API data handling, structured game loops, and Supabase cloud state persistence.</p>
+          <div class="tags">
+            <span>React Native / Web</span><span>Expo Speech</span><span>Supabase</span><span>Lexicon API</span>
+          </div>
+          <div class="card-footer">
+            <a class="link" href="https://spell-forgee.vercel.app" target="_blank" rel="noopener">Live Demo ↗</a>
+            <span class="badge-sub">EdTech Platform</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-header">
+        <div class="section-tag">// SOLUTIONS</div>
+        <h2>What I Deliver</h2>
+        <p class="sub">Tailored engineering for business owners, creators, and agency partners looking for dependable delivery.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>High-Converting Landing Pages</h3>
+          <div class="rate-badge">From ₦25,000 / Custom Quote</div>
+          <p>Snappy, responsive single-page websites optimized for mobile screens, fast global loading, and clear conversion paths.</p>
+          <ul class="checklist">
+            <li>Mobile-first design (Tailwind / React)</li>
+            <li>Direct WhatsApp and lead capture flows</li>
+            <li>Free deployment on fast global CDN</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Multi-Page Web Applications</h3>
+          <div class="rate-badge">From ₦15,000 / page</div>
+          <p>Structured web platforms featuring product catalogs, forms, dynamic state, and payment integrations.</p>
+          <ul class="checklist">
+            <li>Paystack payment gateway integration</li>
+            <li>Database &amp; backend setup (Supabase / Node)</li>
+            <li>2 thorough revision rounds included</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>WhatsApp &amp; Telegram Bots</h3>
+          <div class="rate-badge">Priced by Feature Scope</div>
+          <p>Automated chat workflows that handle inbound customer inquiries, order processing, and scheduled broadcast notifications.</p>
+          <ul class="checklist">
+            <li>Automated FAQ &amp; menu routing</li>
+            <li>Order alerts &amp; customer database logging</li>
+            <li>Server setup and deployment guidance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process">
+    <div class="wrap">
+      <div class="section-header">
+        <div class="section-tag">// EXECUTION</div>
+        <h2>How We Work Together</h2>
+        <p class="sub">Predictable milestones, transparent communication, and zero guesswork.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01 // DISCOVERY</div>
+          <h3>Project Brief</h3>
+          <p>You share your target objectives, required pages or features, and your target launch date.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02 // COMMITMENT</div>
+          <h3>Scope &amp; Terms</h3>
+          <p>We lock in the deliverables, timeline, and terms (50% upfront deposit) with complete clarity.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03 // STAGING</div>
+          <h3>Interactive Preview</h3>
+          <p>You test a working live preview on Vercel to inspect layout, test interactions, and request adjustments.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04 // DELIVERY</div>
+          <h3>Launch &amp; Handover</h3>
+          <p>Final balance, DNS domain connection, and clean delivery of code or hosting handover.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <div class="section-tag">// INITIATE CONTACT</div>
+        <h2 style="margin: 8px 0 12px;">Ready to build your next project?</h2>
+        <p class="sub" style="margin-bottom: 28px; max-width: 54ch;">
+          Whether you have a brand-new project brief or need an extra developer for agency overflow, I deliver on time and within scope.
+        </p>
+
+        <div class="btn-group">
+          <a class="btn primary" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20I%20reviewed%20your%20portfolio%20and%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener">
+            Chat Directly on WhatsApp (+234 913 712 3224) →
+          </a>
+          <button class="btn secondary" onclick="copyEmail()">
+            Copy Email (philipadeoye247@gmail.com)
+          </button>
+          <a class="btn secondary" href="https://github.com/philem247" target="_blank" rel="noopener">
+            GitHub (philem247) ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; <span id="y"></span> Philip Adeoye. Full-Stack Web &amp; Automation Developer.</div>
+    <div>Designed for speed, clarity, and client conversion.</div>
+  </div>
+</footer>
+
+<div id="toast">Email copied to clipboard!</div>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  function copyEmail() {
+    navigator.clipboard.writeText('philipadeoye247@gmail.com').then(() => {
+      const toast = document.getElementById('toast');
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 2500);
+    }).catch(() => {
+      window.location.href = 'mailto:philipadeoye247@gmail.com';
+    });
+  }
+</script>
+</body>
+</html>
