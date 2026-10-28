@@ -3,678 +3,373 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Philip Adeoye — Developer</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Philip Adeoye - Developer</title>
   <meta name="description" content="Philip Adeoye builds websites, web applications, and custom messaging bots.">
-  
-  <!-- OpenGraph -->
-  <meta property="og:title" content="Philip Adeoye — Developer">
+
+  <meta property="og:title" content="Philip Adeoye - Developer">
   <meta property="og:description" content="Websites, web applications, and custom messaging bots.">
   <meta property="og:type" content="website">
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23090a0f'/><text x='50%' y='68%' font-family='sans-serif' font-weight='800' font-size='56' fill='%23ffffff' text-anchor='middle'>P</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f5c45'/><text x='50%' y='70%' font-family='sans-serif' font-weight='800' font-size='60' fill='%23f3f4ef' text-anchor='middle'>P</text></svg>">
 
-  <!-- Typography: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 
-  <!-- Hugeicons Font CDN -->
   <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css" />
 
   <style>
     :root {
-      --bg: #090a0f;
-      --card: #11131a;
-      --card-hover: #161822;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.16);
-      --text: #f4f5f8;
-      --text-muted: #8e93a4;
-      --accent: #3b82f6;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
+      --bg: #f3f4ef;
+      --panel: #e6e9e1;
+      --text: #151917;
+      --muted: #4d554f;
+      --rule: rgba(21, 25, 23, 0.14);
+      --accent: #0f5c45;
+      --accent-ink: #f3f4ef;
+      --accent-hover: #0b4836;
+      --display: 'Bricolage Grotesque', 'Instrument Sans', system-ui, sans-serif;
+      --body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --r: 10px;
+      --gutter: 20px;
     }
+    :root[data-theme="dark"] {
+      --bg: #111412;
+      --panel: #1a1f1c;
+      --text: #eceee8;
+      --muted: #a2aaa3;
+      --rule: rgba(236, 238, 232, 0.16);
+      --accent: #7fd1ab;
+      --accent-ink: #0d1a14;
+      --accent-hover: #9be0bf;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #111412;
+        --panel: #1a1f1c;
+        --text: #eceee8;
+        --muted: #a2aaa3;
+        --rule: rgba(236, 238, 232, 0.16);
+        --accent: #7fd1ab;
+        --accent-ink: #0d1a14;
+        --accent-hover: #9be0bf;
+      }
+    }
+    .theme-toggle { width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; background: none; border: 1px solid var(--rule); border-radius: var(--r); color: var(--text); cursor: pointer; }
+    .theme-toggle:hover { background: var(--panel); }
+    .bar-right { display: flex; align-items: center; gap: 8px; }
+    .hero h1 .soft { font-weight: 400; color: var(--muted); }
+    .hero .eyebrow { font-weight: 600; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; display: flex; align-items: center; gap: 12px; }
+    .hero .eyebrow::before { content: ""; width: 32px; height: 2px; background: var(--accent); }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
     body {
-      font-family: var(--font-sans);
-      background-color: var(--bg);
+      font-family: var(--body);
+      font-size: 1rem;
+      line-height: 1.6;
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; text-wrap: balance; }
+    p { text-wrap: pretty; }
 
-    .wrap {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--gutter); }
 
-    /* Hugeicons styling helpers */
-    .hgi-stroke {
-      font-size: 1.15rem;
-      line-height: 1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      vertical-align: middle;
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+    .hgi-stroke { font-size: 1.2rem; line-height: 1; display: inline-flex; vertical-align: middle; }
+
+    /* Buttons and links: 48px touch targets */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 52px; padding: 0 24px;
+      border: 1.5px solid var(--text); border-radius: var(--r);
+      font: 600 1rem var(--body); text-decoration: none; color: var(--text);
+      transition: background-color .15s ease-out, color .15s ease-out, transform .15s ease-out;
     }
-    .hgi-sm {
-      font-size: 0.92rem;
+    .btn:hover { background: var(--panel); }
+    .btn:active { transform: scale(0.98); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+    .btn.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+
+    .link {
+      display: inline-flex; align-items: center; gap: 8px; min-height: 48px;
+      font-weight: 600; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 5px;
+      text-decoration-color: var(--rule); transition: text-decoration-color .15s ease-out;
     }
+    .link:hover { text-decoration-color: currentColor; }
+    .link.go { color: var(--accent); text-decoration-color: currentColor; }
 
     /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(9, 10, 15, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 64px;
-    }
-    .logo {
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      text-decoration: none;
-    }
-    nav {
-      display: flex;
-      gap: 20px;
-    }
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.15s ease;
-    }
+    header { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    .bar { display: flex; align-items: center; justify-content: space-between; min-height: 64px; gap: 12px; }
+    .logo { font: 700 1.15rem var(--display); letter-spacing: -0.02em; text-decoration: none; min-height: 48px; display: inline-flex; align-items: center; }
+    nav { display: none; gap: 8px; }
+    nav a { min-height: 48px; display: inline-flex; align-items: center; padding: 0 12px; text-decoration: none; color: var(--muted); font-weight: 500; }
     nav a:hover { color: var(--text); }
+    .bar .btn { min-height: 48px; padding: 0 18px; }
 
     /* Hero */
-    .hero {
-      padding: 72px 0 54px;
-    }
-    .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 3.8rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.12;
-      color: #ffffff;
-      margin-bottom: 16px;
-    }
-    .hero-lead {
-      font-size: clamp(1.1rem, 2.5vw, 1.25rem);
-      color: var(--text-muted);
-      max-width: 54ch;
-      line-height: 1.6;
-      margin-bottom: 30px;
-    }
-    
-    /* Buttons */
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 22px;
-      border-radius: 9px;
-      font-size: 0.92rem;
-      font-weight: 500;
-      text-decoration: none;
-      border: 1px solid var(--border);
-      color: var(--text);
-      background: var(--card);
-      cursor: pointer;
-      transition: all 0.18s ease;
-      min-height: 46px;
-    }
-    .btn.primary {
-      background: #ffffff;
-      color: #090a0f;
-      border-color: #ffffff;
-      font-weight: 600;
-    }
-    .btn.primary:hover {
-      background: #e6e8ee;
-      transform: translateY(-1px);
-    }
-    .btn:hover:not(.primary) {
-      background: var(--card-hover);
-      border-color: var(--border-hover);
-      transform: translateY(-1px);
-    }
+    .hero { padding-block: 56px 64px; }
+    .hero h1 { font-size: clamp(2.25rem, 9.5vw, 4.6rem); max-width: 16ch; margin-bottom: 20px; }
+    .hero p { color: var(--muted); font-size: 1.125rem; max-width: 34ch; margin-bottom: 32px; }
+    .actions { display: flex; flex-direction: column; gap: 12px; }
 
-    /* Section Titles */
-    section {
-      padding: 56px 0;
-      border-top: 1px solid var(--border);
-    }
-    .section-head {
-      margin-bottom: 32px;
-    }
-    .section-head h2 {
-      font-size: 1.65rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 6px;
-    }
-    .section-head p {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-    }
+    /* Sections */
+    section { padding: 64px 0; border-top: 1px solid var(--rule); }
+    h2 { font-size: clamp(1.75rem, 6vw, 2.5rem); margin-bottom: 40px; }
 
-    /* Work Grid */
-    .work-grid {
-      display: grid;
-      gap: 32px;
-    }
-    
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr;
-      transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-    .project-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
-    }
-
-    @media (min-width: 768px) {
-      .project-card.split {
-        grid-template-columns: 1.15fr 1fr;
-      }
-      .project-card.split.reverse {
-        grid-template-columns: 1fr 1.15fr;
-      }
-      .project-card.split.reverse .project-img {
-        order: 2;
-      }
-    }
-
-    .project-img {
-      background: #0d0f15;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border);
-    }
-    @media (min-width: 768px) {
-      .project-card.split .project-img {
-        border-bottom: none;
-        border-right: 1px solid var(--border);
-      }
-      .project-card.split.reverse .project-img {
-        border-right: none;
-        border-left: 1px solid var(--border);
-      }
-    }
-
-    .project-img img {
-      width: 100%;
-      height: 100%;
-      max-height: 380px;
-      object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    .project-content {
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 10px;
-    }
-    .project-title {
-      font-size: 1.35rem;
-      font-weight: 600;
-      letter-spacing: -0.015em;
-    }
-    .project-type {
-      font-family: var(--font-mono);
-      font-size: 0.76rem;
-      color: var(--text-muted);
-    }
-    .project-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
+    /* Work */
+    .project { margin-bottom: 72px; }
+    .project:last-child { margin-bottom: 0; }
+    .shot {
+      background: var(--panel); border-radius: var(--r); overflow: hidden;
+      display: flex; justify-content: center; align-items: center; gap: 14px; padding: 24px 16px 0;
       margin-bottom: 20px;
     }
-    
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 24px;
-    }
-    .tags span {
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border);
-      color: #b1b5c4;
-      padding: 3px 8px;
-      border-radius: 5px;
+    .shot img { border-radius: 14px 14px 0 0; box-shadow: 0 -2px 24px rgba(15, 40, 30, .12); }
+    .shot.phone { align-items: flex-end; }
+    .shot.phone img { width: min(58%, 230px); aspect-ratio: 340 / 747; object-fit: cover; object-position: top; max-height: 380px; }
+    .shot.pair img { width: calc(50% - 7px); max-width: 220px; aspect-ratio: 5 / 8; object-fit: cover; object-position: top; max-height: 360px; }
+    .shot.wide { padding: 0; align-items: flex-start; }
+    .shot.wide img { width: 100%; height: auto; border-radius: 0; box-shadow: none; }
+
+    .project h3 { font-size: 1.6rem; margin-bottom: 4px; }
+    .kind { color: var(--muted); font-size: .95rem; margin-bottom: 12px; }
+    .desc { color: var(--text); max-width: 52ch; margin-bottom: 12px; }
+    .stack { color: var(--muted); font-size: .95rem; margin-bottom: 8px; }
+    .links { display: flex; flex-wrap: wrap; gap: 4px 24px; }
+
+    /* Services */
+    .svc { padding: 28px 0; border-top: 1px solid var(--rule); }
+    .svc:first-of-type { border-top: 0; padding-top: 0; }
+    .svc h3 { font-size: 1.35rem; margin-bottom: 8px; }
+    .svc p { color: var(--muted); margin-bottom: 14px; max-width: 48ch; }
+    .svc ul { list-style: none; }
+    .svc li { position: relative; padding: 2px 0 2px 28px; }
+    .svc li i { position: absolute; left: 0; top: 7px; color: var(--accent); }
+
+    h3.sub { font-size: 1.35rem; margin: 56px 0 20px; }
+    .process { list-style: none; display: grid; gap: 20px; }
+    .process li { padding-left: 16px; border-left: 3px solid var(--accent); }
+    .process strong { display: block; font: 700 1.1rem var(--display); letter-spacing: -0.01em; }
+    .process span { color: var(--muted); }
+
+    /* Contact */
+    .contact { padding: 72px 0; background: var(--panel); border-top: 0; }
+    .contact h2 { margin-bottom: 14px; }
+    .contact p { color: var(--muted); max-width: 44ch; margin-bottom: 28px; }
+
+    footer { padding: 24px 0; color: var(--muted); font-size: .95rem; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 4px 16px; }
+    footer a { display: inline-flex; min-height: 48px; align-items: center; text-decoration: none; }
+
+    @media (min-width: 720px) {
+      :root { --gutter: 32px; }
+      nav { display: flex; }
+      .hero { padding-block: 96px 104px; }
+      .actions { flex-direction: row; }
+      section { padding: 88px 0; }
+      .contact .actions { flex-wrap: wrap; }
+
+      /* Teda: phone left, text right */
+      .project.split { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: center; }
+      .project.split .shot { margin-bottom: 0; }
+      .project.split .shot.phone img { max-height: 460px; }
+
+      /* Bots: wide frame, text offset */
+      .project.offset { display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: center; }
+      .project.offset .shot { margin-bottom: 0; }
+      .project.offset .shot.pair img { max-height: 440px; }
+
+      .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+      .duo .project { margin-bottom: 0; }
+
+      .svc-list { display: block; }
+      .svc { display: grid; grid-template-columns: 5fr 7fr; gap: 40px; padding: 36px 0; }
+      .svc > div:first-child h3 { margin-bottom: 0; }
+      .process { grid-template-columns: repeat(4, 1fr); gap: 24px; }
     }
 
-    .project-links {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-    .project-links a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: opacity 0.15s ease;
-    }
-    .project-links a:hover { opacity: 0.75; }
-    .project-links a.primary-link {
-      color: #60a5fa;
-    }
-
-    /* Bot Double Preview */
-    .bot-dual-preview {
-      display: flex;
-      gap: 12px;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-    }
-    .bot-dual-preview img {
-      width: 48%;
-      max-height: 340px;
-      object-fit: contain;
-    }
-
-    /* Services Grid */
-    .services-grid {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-    .service-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-    }
-    .service-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-    .service-desc {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.6;
-      margin-bottom: 18px;
-      flex: 1;
-    }
-    .service-points {
-      list-style: none;
-      font-size: 0.88rem;
-      color: #b1b5c4;
-    }
-    .service-points li {
-      margin-bottom: 8px;
-      position: relative;
-      padding-left: 22px;
-    }
-    .service-points li i {
-      position: absolute;
-      left: 0;
-      top: 3px;
-      color: #60a5fa;
-      font-size: 0.95rem;
-    }
-
-    /* Process / Terms */
-    .process-grid {
-      display: grid;
-      gap: 14px;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      margin-top: 14px;
-    }
-    .process-item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-    }
-    .process-num {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-    .process-item h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-    .process-item p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* Contact Box */
-    .contact-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 36px 28px;
-    }
-    .contact-card h2 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
-    }
-    .contact-card p {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      max-width: 50ch;
-      margin-bottom: 24px;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 36px 0;
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
-    footer .wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    footer a {
-      color: var(--text-muted);
-      text-decoration: none;
-    }
-    footer a:hover { color: var(--text); }
-
-    @media (max-width: 600px) {
-      .hero { padding: 48px 0 36px; }
-      .btn-group { flex-direction: column; width: 100%; }
-      .btn { width: 100%; }
-      .project-content { padding: 20px; }
-      .contact-card { padding: 24px 20px; }
-      nav a { font-size: 0.84rem; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap header-inner">
+  <div class="wrap bar">
     <a href="#" class="logo">Philip Adeoye</a>
-    <nav>
+    <nav aria-label="Main">
       <a href="#work">Work</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
+    <div class="bar-right">
+      <button class="theme-toggle" id="theme" type="button" aria-label="Switch light or dark theme"><i class="hgi-stroke hgi-moon-02" aria-hidden="true"></i></button>
+      <a class="btn primary" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20I%20have%20a%20project%20I%27d%20like%20to%20discuss." target="_blank" rel="noopener">
+        <i class="hgi-stroke hgi-whatsapp" aria-hidden="true"></i>
+        Chat
+      </a>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
-  <!-- Hero -->
-  <section class="hero" style="border-top: none;">
-    <h1>Philip Adeoye</h1>
-    <p class="hero-lead">I build responsive websites, web applications, and custom messaging bots. Focused on clean user experience, solid performance, and dependable delivery.</p>
-    <div class="btn-group">
+<main>
+  <div class="wrap hero">
+    <div class="eyebrow">Philip Adeoye, web developer</div>
+    <h1><span class="soft">I build</span> responsive websites, web applications, <span class="soft">and</span> custom messaging bots.</h1>
+    <p>Clean user experience, solid performance, and dependable delivery.</p>
+    <div class="actions">
       <a class="btn primary" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20I%20have%20a%20project%20I%27d%20like%20to%20discuss." target="_blank" rel="noopener">
-        <i class="hgi-stroke hgi-whatsapp"></i>
+        <i class="hgi-stroke hgi-whatsapp" aria-hidden="true"></i>
         Chat on WhatsApp
       </a>
-      <a class="btn" href="#work">
-        View Projects
-      </a>
+      <a class="btn" href="#work">View projects</a>
     </div>
-  </section>
+  </div>
 
-  <!-- Work -->
   <section id="work">
-    <div class="section-head">
-      <h2>Selected Work</h2>
-      <p>A few web applications and bots I've built and shipped.</p>
-    </div>
+    <div class="wrap">
+      <h2>Selected work</h2>
 
-    <div class="work-grid">
-
-      <!-- Teda Foods -->
-      <div class="project-card split">
-        <div class="project-img">
-          <img src="assets/teda-foods.png" alt="Teda Foods food ordering site preview" loading="lazy">
+      <article class="project split">
+        <div class="shot phone">
+          <img src="assets/teda-foods.png" width="340" height="747" alt="Teda Foods ordering site on a phone">
         </div>
-        <div class="project-content">
-          <div class="project-header">
-            <h3 class="project-title">Teda Foods</h3>
-            <span class="project-type">E-Commerce</span>
-          </div>
-          <p class="project-desc">Online food-ordering site for a campus kitchen. Customers can browse meals, add items into a tray, pay online, or route their complete order directly through WhatsApp.</p>
-          <div class="tags">
-            <span>React</span><span>Paystack Checkout</span><span>WhatsApp Ordering</span><span>Responsive</span>
-          </div>
-          <div class="project-links">
-            <a class="primary-link" href="https://teda-foods.vercel.app" target="_blank" rel="noopener">
-              Visit Live Site
-              <i class="hgi-stroke hgi-arrow-up-right-01 hgi-sm"></i>
-            </a>
-            <a href="https://github.com/philem247/teda-foods" target="_blank" rel="noopener">
-              <i class="hgi-stroke hgi-github"></i>
-              GitHub
-            </a>
+        <div>
+          <h3>Teda Foods</h3>
+          <p class="kind">Food ordering site</p>
+          <p class="desc">Online food-ordering site for a campus kitchen. Customers browse meals, add items to a tray, pay online, or send the full order straight to WhatsApp.</p>
+          <p class="stack">React, Paystack checkout, WhatsApp ordering</p>
+          <div class="links">
+            <a class="link go" href="https://teda-foods.vercel.app" target="_blank" rel="noopener">Visit live site <i class="hgi-stroke hgi-arrow-up-right-01" aria-hidden="true"></i></a>
+            <a class="link" href="https://github.com/philem247/teda-foods" target="_blank" rel="noopener"><i class="hgi-stroke hgi-github" aria-hidden="true"></i> GitHub</a>
           </div>
         </div>
+      </article>
+
+      <article class="project offset">
+        <div class="shot pair phone">
+          <img src="assets/goalnotif.jpg" width="642" height="1024" alt="GoalNotif WhatsApp bot command list" loading="lazy">
+          <img src="assets/wcg-bot.jpg" width="578" height="1024" alt="WCG community game bot on WhatsApp" loading="lazy">
+        </div>
+        <div>
+          <h3>WhatsApp bots</h3>
+          <p class="kind">GoalNotif and WCG</p>
+          <p class="desc">Bots built with Node.js and Baileys. GoalNotif sends live match alerts. WCG runs group games like trivia, word scramble and quizzes, around the clock.</p>
+          <p class="stack">Node.js, Baileys, PM2</p>
+          <div class="links">
+            <a class="link go" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20I%27d%20like%20to%20ask%20about%20a%20bot" target="_blank" rel="noopener">Ask about bots <i class="hgi-stroke hgi-arrow-up-right-01" aria-hidden="true"></i></a>
+            <a class="link" href="https://github.com/philem247/wcg-bot" target="_blank" rel="noopener"><i class="hgi-stroke hgi-github" aria-hidden="true"></i> GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="duo">
+        <article class="project">
+          <div class="shot wide">
+            <img src="assets/focus-flow.png" width="1024" height="584" alt="Focus and Flow study timer" loading="lazy">
+          </div>
+          <h3>Focus &amp; Flow</h3>
+          <p class="kind">Web application</p>
+          <p class="desc">Study companion with custom interval timers, ambient sound mixing, a streak heatmap, and light and dark modes.</p>
+          <p class="stack">React 19, Tailwind CSS, Web Audio API, Vite</p>
+          <div class="links">
+            <a class="link go" href="https://focus-flowff.vercel.app" target="_blank" rel="noopener">Visit live site <i class="hgi-stroke hgi-arrow-up-right-01" aria-hidden="true"></i></a>
+            <a class="link" href="https://github.com/philem247" target="_blank" rel="noopener"><i class="hgi-stroke hgi-github" aria-hidden="true"></i> GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="shot wide">
+            <img src="assets/spellforge.png" width="1024" height="473" alt="SpellForge spelling game" loading="lazy">
+          </div>
+          <h3>SpellForge</h3>
+          <p class="kind">Spelling game</p>
+          <p class="desc">Vocabulary game with spoken words, dictionary lookups, difficulty tiers, XP progression and a cloud-synced leaderboard.</p>
+          <p class="stack">React Native, Expo Speech, Supabase</p>
+          <div class="links">
+            <a class="link go" href="https://spell-forgee.vercel.app" target="_blank" rel="noopener">Visit live site <i class="hgi-stroke hgi-arrow-up-right-01" aria-hidden="true"></i></a>
+          </div>
+        </article>
       </div>
-
-      <!-- WhatsApp Bots -->
-      <div class="project-card split reverse">
-        <div class="project-img">
-          <div class="bot-dual-preview">
-            <img src="assets/goalnotif.jpg" alt="GoalNotif WhatsApp bot command list" loading="lazy">
-            <img src="assets/wcg-bot.jpg" alt="WCG Community game bot on WhatsApp" loading="lazy">
-          </div>
-        </div>
-        <div class="project-content">
-          <div class="project-header">
-            <h3 class="project-title">WhatsApp Bots &amp; Automation</h3>
-            <span class="project-type">Node.js Automation</span>
-          </div>
-          <p class="project-desc">Automated WhatsApp bots built with Node.js and Baileys. Features real-time match notification dispatching (GoalNotif) and interactive group games (trivia, word scramble, quizzes) running reliably 24/7.</p>
-          <div class="tags">
-            <span>Node.js</span><span>Baileys</span><span>PM2</span><span>Automated Messaging</span>
-          </div>
-          <div class="project-links">
-            <a class="primary-link" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20can%20you%20show%20me%20a%20demo%20of%20your%20WhatsApp%20bots%3F" target="_blank" rel="noopener">
-              Request Bot Demo
-              <i class="hgi-stroke hgi-arrow-up-right-01 hgi-sm"></i>
-            </a>
-            <a href="https://github.com/philem247/wcg-bot" target="_blank" rel="noopener">
-              <i class="hgi-stroke hgi-github"></i>
-              GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Focus Flow -->
-      <div class="project-card split">
-        <div class="project-img">
-          <img src="assets/focus-flow.png" alt="Focus & Flow productivity timer preview" loading="lazy">
-        </div>
-        <div class="project-content">
-          <div class="project-header">
-            <h3 class="project-title">Focus &amp; Flow</h3>
-            <span class="project-type">Web Application</span>
-          </div>
-          <p class="project-desc">Study and productivity companion with customizable interval timers, an integrated audio engine for ambient soundscapes, productivity streak heatmaps, and clean dark/light modes.</p>
-          <div class="tags">
-            <span>React 19</span><span>Tailwind CSS</span><span>Web Audio API</span><span>Vite</span>
-          </div>
-          <div class="project-links">
-            <a class="primary-link" href="https://focus-flowff.vercel.app" target="_blank" rel="noopener">
-              Visit Live Site
-              <i class="hgi-stroke hgi-arrow-up-right-01 hgi-sm"></i>
-            </a>
-            <a href="https://github.com/philem247" target="_blank" rel="noopener">
-              <i class="hgi-stroke hgi-github"></i>
-              GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- SpellForge -->
-      <div class="project-card split reverse">
-        <div class="project-img">
-          <img src="assets/spellforge.png" alt="SpellForge spelling game preview" loading="lazy">
-        </div>
-        <div class="project-content">
-          <div class="project-header">
-            <h3 class="project-title">SpellForge</h3>
-            <span class="project-type">Interactive Game</span>
-          </div>
-          <p class="project-desc">Vocabulary and spelling game with voice synthesis integration. Features dynamic dictionary lookups, structured difficulty tiers, XP progression, and cloud-synced leaderboards.</p>
-          <div class="tags">
-            <span>React Native / Web</span><span>Expo Speech</span><span>Supabase</span><span>Dictionary API</span>
-          </div>
-          <div class="project-links">
-            <a class="primary-link" href="https://spell-forgee.vercel.app" target="_blank" rel="noopener">
-              Visit Live Site
-              <i class="hgi-stroke hgi-arrow-up-right-01 hgi-sm"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- Services -->
   <section id="services">
-    <div class="section-head">
+    <div class="wrap">
       <h2>Services</h2>
-      <p>Clean engineering for founders, creators, and agency partners looking for dependable delivery.</p>
-    </div>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>Landing Pages</h3>
-        <p class="service-desc">Single-page websites built for clarity and speed. Optimized for mobile viewports, fast loading, and direct user action.</p>
-        <ul class="service-points">
-          <li><i class="hgi-stroke hgi-tick-02"></i> Mobile-first responsive layout</li>
-          <li><i class="hgi-stroke hgi-tick-02"></i> WhatsApp or contact button integration</li>
-          <li><i class="hgi-stroke hgi-tick-02"></i> Deployment on high-speed global CDN</li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <h3>Multi-Page Websites &amp; Web Apps</h3>
-        <p class="service-desc">Structured sites and web applications with product catalogs, dynamic forms, backend databases, and payment checkouts.</p>
-        <ul class="service-points">
-          <li><i class="hgi-stroke hgi-tick-02"></i> Custom forms &amp; payment gateway setup</li>
-          <li><i class="hgi-stroke hgi-tick-02"></i> Clean, structured navigation &amp; architecture</li>
-          <li><i class="hgi-stroke hgi-tick-02"></i> Multiple revision rounds included</li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <h3>WhatsApp &amp; Telegram Bots</h3>
-        <p class="service-desc">Automated chat workflows that respond to customer inquiries, dispatch real-time alerts, or run interactive group commands.</p>
-        <ul class="service-points">
-          <li><i class="hgi-stroke hgi-tick-02"></i> Automated menu &amp; reply flows</li>
-          <li><i class="hgi-stroke hgi-tick-02"></i> Order notifications &amp; alert routing</li>
-          <li><i class="hgi-stroke hgi-tick-02"></i> Server setup, hosting guide, and support</li>
-        </ul>
-      </div>
-    </div>
-
-    <div style="margin-top: 36px;">
-      <h3 style="font-size: 1.15rem; margin-bottom: 12px; font-weight: 600;">How I Work</h3>
-      <div class="process-grid">
-        <div class="process-item">
-          <div class="process-num">01</div>
-          <h4>Brief</h4>
-          <p>You send the outline of what you need, your content, and your deadline.</p>
+      <div class="svc-list">
+        <div class="svc">
+          <div><h3>Landing pages</h3></div>
+          <div>
+            <p>Single-page sites built to load fast on a phone and get people to message you.</p>
+            <ul>
+              <li><i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>Mobile-first layout</li>
+              <li><i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>WhatsApp or contact button</li>
+              <li><i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>Hosted on a fast global CDN</li>
+            </ul>
+          </div>
         </div>
-        <div class="process-item">
-          <div class="process-num">02</div>
-          <h4>Scope &amp; Terms</h4>
-          <p>We confirm the deliverables, milestones, and timeline before build starts.</p>
+        <div class="svc">
+          <div><h3>Websites and web apps</h3></div>
+          <div>
+            <p>Multi-page sites and apps with product catalogs, forms, databases and checkout.</p>
+            <ul>
+              <li><i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>Custom forms and payment setup</li>
+              <li><i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>Clear structure and navigation</li>
+              <li><i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>Revision rounds included</li>
+            </ul>
+          </div>
         </div>
-        <div class="process-item">
-          <div class="process-num">03</div>
-          <h4>Working Preview</h4>
-          <p>You review a working live staging link and request adjustments.</p>
-        </div>
-        <div class="process-item">
-          <div class="process-num">04</div>
-          <h4>Delivery</h4>
-          <p>Final sign-off, domain connection, and clean handoff of project files.</p>
+        <div class="svc">
+          <div><h3>WhatsApp and Telegram bots</h3></div>
+          <div>
+            <p>Automated chats that answer customers, send alerts, or run group commands.</p>
+            <ul>
+              <li><i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>Menu and reply flows</li>
+              <li><i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>Order notifications and alerts</li>
+              <li><i class="hgi-stroke hgi-tick-02" aria-hidden="true"></i>Server setup, hosting guide and support</li>
+            </ul>
+          </div>
         </div>
       </div>
+
+      <h3 class="sub">How I work</h3>
+      <ol class="process">
+        <li><strong>Brief</strong><span>You send what you need, your content and your deadline.</span></li>
+        <li><strong>Scope and terms</strong><span>We agree deliverables, milestones and timeline before I build.</span></li>
+        <li><strong>Working preview</strong><span>You review a live link and ask for changes.</span></li>
+        <li><strong>Delivery</strong><span>Final sign-off, domain connection and a clean handoff of files.</span></li>
+      </ol>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <div class="contact-card">
+  <section id="contact" class="contact">
+    <div class="wrap">
       <h2>Let's talk about your project</h2>
-      <p>Have an idea to build, or need a dependable developer for overflow client work? Reach out directly via WhatsApp or email.</p>
-      <div class="btn-group">
+      <p>Have something to build, or need a dependable developer for overflow client work? Message me on WhatsApp or send an email.</p>
+      <div class="actions">
         <a class="btn primary" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20I%20have%20a%20project%20I%27d%20like%20to%20discuss." target="_blank" rel="noopener">
-          <i class="hgi-stroke hgi-whatsapp"></i>
+          <i class="hgi-stroke hgi-whatsapp" aria-hidden="true"></i>
           Chat on WhatsApp
         </a>
         <a class="btn" href="mailto:philipadeoye247@gmail.com">
-          <i class="hgi-stroke hgi-mail-01"></i>
-          Send Email
+          <i class="hgi-stroke hgi-mail-01" aria-hidden="true"></i>
+          Email
         </a>
         <a class="btn" href="https://github.com/philem247" target="_blank" rel="noopener">
-          <i class="hgi-stroke hgi-github"></i>
-          GitHub Profile
+          <i class="hgi-stroke hgi-github" aria-hidden="true"></i>
+          GitHub profile
         </a>
       </div>
     </div>
@@ -684,12 +379,27 @@
 <footer>
   <div class="wrap">
     <div>&copy; <span id="year"></span> Philip Adeoye</div>
-    <div><a href="#work">Back to top ↑</a></div>
+    <a href="#">Back to top</a>
   </div>
 </footer>
 
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('theme'), icon = btn.firstElementChild;
+    function isDark() {
+      var t = root.dataset.theme;
+      return t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    function paint() { icon.className = 'hgi-stroke ' + (isDark() ? 'hgi-sun-03' : 'hgi-moon-02'); }
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      paint();
+    });
+    paint();
+  })();
 </script>
 </body>
 </html>
