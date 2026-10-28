@@ -2,524 +2,666 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Philip Adeoye — Full-Stack Web &amp; Automation Developer</title>
-  <meta name="description" content="Philip Adeoye builds high-performance responsive web applications, Paystack e-commerce integrations, and automated WhatsApp/Telegram bots for businesses and agencies.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Philip Adeoye — Developer</title>
+  <meta name="description" content="Philip Adeoye builds websites, web applications, and custom messaging bots.">
   
-  <!-- OpenGraph Metadata (Critical for crisp WhatsApp/Twitter link previews) -->
-  <meta property="og:title" content="Philip Adeoye — Full-Stack Web &amp; Automation Developer">
-  <meta property="og:description" content="Snappy React web applications, Paystack payment workflows, and 24/7 automated WhatsApp &amp; Telegram bots.">
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Philip Adeoye — Developer">
+  <meta property="og:description" content="Websites, web applications, and custom messaging bots.">
   <meta property="og:type" content="website">
 
-  <!-- SVG Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%2307090e'/><text x='50%' y='68%' font-family='sans-serif' font-weight='900' font-size='56' fill='%2310b981' text-anchor='middle'>P</text></svg>">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230f1117'/><text x='50%' y='68%' font-family='sans-serif' font-weight='800' font-size='56' fill='%23ffffff' text-anchor='middle'>P</text></svg>">
 
-  <!-- Fonts: Inter & JetBrains Mono -->
+  <!-- Typography: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #07090e;
-      --card: #0d121d;
-      --card-hover: #121826;
-      --border: #182032;
-      --border-bright: #2b3858;
-      --text: #f0f4fc;
-      --muted: #8a98b4;
-      --accent: #10b981;
-      --accent-glow: rgba(16, 185, 129, 0.15);
-      --accent-soft: rgba(16, 185, 129, 0.08);
+      --bg: #090a0f;
+      --card: #11131a;
+      --card-hover: #161822;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.16);
+      --text: #f4f5f8;
+      --text-muted: #8e93a4;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59, 130, 246, 0.12);
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    
     body {
       font-family: var(--font-sans);
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.6;
-      background-image: 
-        radial-gradient(circle at 50% 0%, #142038 0%, transparent 60%),
-        linear-gradient(to bottom, transparent 0%, #07090e 100%);
-      background-repeat: no-repeat;
-      min-height: 100vh;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
-    
-    /* Navigation */
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
     header {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      background: rgba(7, 9, 14, 0.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
       z-index: 50;
+      background: rgba(9, 10, 15, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
     }
-    header .wrap { display: flex; justify-content: space-between; align-items: center; }
-    .brand {
-      font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: -0.02em;
+    .header-inner {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      text-decoration: none;
+      height: 64px;
+    }
+    .logo {
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
       color: var(--text);
-    }
-    .status-badge {
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      background: var(--accent-glow);
-      color: var(--accent);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      padding: 3px 10px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--accent);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--accent);
-      animation: pulse 2.2s infinite;
-    }
-    @keyframes pulse {
-      0% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.45; transform: scale(0.9); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-    
-    nav a {
-      color: var(--muted);
       text-decoration: none;
-      font-size: 0.92rem;
-      margin-left: 22px;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
       transition: color 0.15s ease;
-      font-weight: 500;
     }
     nav a:hover { color: var(--text); }
 
     /* Hero */
-    .hero { padding: 88px 0 64px; }
-    .hero-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      color: var(--accent);
-      margin-bottom: 18px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent-soft);
-      padding: 4px 12px;
-      border-radius: 6px;
-      border: 1px solid rgba(16, 185, 129, 0.2);
+    .hero {
+      padding: 72px 0 54px;
     }
     .hero h1 {
-      font-size: clamp(2.3rem, 5.8vw, 3.7rem);
-      line-height: 1.15;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
       font-weight: 700;
-      letter-spacing: -0.035em;
-      max-width: 20ch;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      color: #ffffff;
+      margin-bottom: 16px;
     }
-    .hero p {
-      color: var(--muted);
-      font-size: 1.15rem;
-      max-width: 58ch;
-      margin: 22px 0 34px;
-      font-weight: 400;
-      line-height: 1.65;
+    .hero-lead {
+      font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 54ch;
+      line-height: 1.6;
+      margin-bottom: 30px;
     }
     
     /* Buttons */
-    .btn-group { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 13px 22px;
-      border-radius: 10px;
-      font-size: 0.94rem;
-      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 9px;
+      font-size: 0.92rem;
+      font-weight: 500;
       text-decoration: none;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       border: 1px solid var(--border);
       color: var(--text);
+      background: var(--card);
       cursor: pointer;
+      transition: all 0.18s ease;
+      min-height: 46px;
     }
     .btn.primary {
-      background: var(--accent);
-      color: #03140b;
-      border-color: var(--accent);
-      box-shadow: 0 4px 24px rgba(16, 185, 129, 0.28);
+      background: #ffffff;
+      color: #090a0f;
+      border-color: #ffffff;
+      font-weight: 600;
     }
     .btn.primary:hover {
-      background: #0ea572;
-      box-shadow: 0 6px 30px rgba(16, 185, 129, 0.42);
-      transform: translateY(-2px);
+      background: #e6e8ee;
+      transform: translateY(-1px);
     }
-    .btn.secondary { background: var(--card); }
-    .btn.secondary:hover {
+    .btn:hover:not(.primary) {
       background: var(--card-hover);
-      border-color: var(--border-bright);
-      transform: translateY(-2px);
+      border-color: var(--border-hover);
+      transform: translateY(-1px);
     }
 
-    /* Sections */
-    section { padding: 68px 0; border-top: 1px solid var(--border); }
-    .section-header { margin-bottom: 38px; }
-    .section-tag {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+    /* Section Titles */
+    section {
+      padding: 56px 0;
+      border-top: 1px solid var(--border);
+    }
+    .section-head {
+      margin-bottom: 32px;
+    }
+    .section-head h2 {
+      font-size: 1.65rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
       margin-bottom: 6px;
     }
-    h2 { font-size: 1.95rem; font-weight: 700; letter-spacing: -0.025em; }
-    .sub { color: var(--muted); font-size: 1.02rem; margin-top: 6px; }
+    .section-head p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
 
-    /* Grids & Cards */
-    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); }
-    .card {
+    /* Work Grid */
+    .work-grid {
+      display: grid;
+      gap: 32px;
+    }
+    
+    .project-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .project-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    @media (min-width: 768px) {
+      .project-card.split {
+        grid-template-columns: 1.15fr 1fr;
+      }
+      .project-card.split.reverse {
+        grid-template-columns: 1fr 1.15fr;
+      }
+      .project-card.split.reverse .project-img {
+        order: 2;
+      }
+    }
+
+    .project-img {
+      background: #0d0f15;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    @media (min-width: 768px) {
+      .project-card.split .project-img {
+        border-bottom: none;
+        border-right: 1px solid var(--border);
+      }
+      .project-card.split.reverse .project-img {
+        border-right: none;
+        border-left: 1px solid var(--border);
+      }
+    }
+
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-content {
       padding: 28px;
       display: flex;
       flex-direction: column;
-      transition: all 0.25s ease;
-      position: relative;
+      justify-content: center;
     }
-    .card:hover {
-      border-color: var(--border-bright);
-      background: var(--card-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
     }
-    .card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.01em; }
-    .card p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; flex: 1; }
-
-    /* Tags */
-    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 18px 0; }
+    .project-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+    }
+    .project-type {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
     .tags span {
       font-family: var(--font-mono);
       font-size: 0.74rem;
-      background: rgba(255, 255, 255, 0.035);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
-      color: #9cb0d4;
-      padding: 4px 10px;
-      border-radius: 6px;
+      color: #b1b5c4;
+      padding: 3px 8px;
+      border-radius: 5px;
     }
 
-    /* Card Footer & Links */
-    .card-footer {
+    .project-links {
       display: flex;
-      justify-content: space-between;
+      gap: 16px;
       align-items: center;
-      margin-top: auto;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .card a.link {
-      color: var(--accent);
+    .project-links a {
+      color: var(--text);
       text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 600;
+      font-size: 0.9rem;
+      font-weight: 500;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: gap 0.2s ease;
+      transition: opacity 0.15s ease;
     }
-    .card a.link:hover { gap: 10px; text-decoration: underline; }
-    .badge-sub { font-family: var(--font-mono); font-size: 0.76rem; color: var(--muted); }
-
-    /* Services & Features */
-    .rate-badge {
-      font-family: var(--font-mono);
-      font-size: 0.88rem;
-      color: var(--accent);
-      margin: 8px 0 14px;
-      font-weight: 600;
-    }
-    ul.checklist { list-style: none; margin-top: 16px; font-size: 0.92rem; color: var(--muted); }
-    ul.checklist li { margin-bottom: 8px; position: relative; padding-left: 22px; }
-    ul.checklist li::before {
-      content: "✓";
-      color: var(--accent);
-      position: absolute;
-      left: 0;
-      font-weight: bold;
+    .project-links a:hover { opacity: 0.75; }
+    .project-links a.primary-link {
+      color: #60a5fa;
     }
 
-    /* Process Steps */
-    .steps-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
-    .step-card {
+    /* Bot Double Preview */
+    .bot-dual-preview {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    .bot-dual-preview img {
+      width: 48%;
+      max-height: 340px;
+      object-fit: contain;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .service-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 24px;
-      transition: border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
     }
-    .step-card:hover { border-color: var(--border-bright); }
-    .step-num {
-      font-family: var(--font-mono);
-      color: var(--accent);
-      font-size: 0.84rem;
+    .service-card h3 {
+      font-size: 1.15rem;
       font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .service-rate {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: #60a5fa;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    .service-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    .service-points {
+      list-style: none;
+      font-size: 0.88rem;
+      color: #b1b5c4;
+    }
+    .service-points li {
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 18px;
+    }
+    .service-points li::before {
+      content: "•";
+      color: var(--text-muted);
+      position: absolute;
+      left: 0;
+    }
+
+    /* Process / Terms */
+    .process-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin-top: 14px;
+    }
+    .process-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .process-num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
       margin-bottom: 8px;
     }
-    .step-card h3 { font-size: 1.08rem; margin-bottom: 6px; }
-    .step-card p { font-size: 0.9rem; color: var(--muted); }
+    .process-item h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .process-item p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
 
-    /* Contact Banner */
-    .contact-box {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(13, 18, 29, 0.9) 100%);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      border-radius: 20px;
-      padding: 40px;
+    /* Contact Box */
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 28px;
+    }
+    .contact-card h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .contact-card p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 50ch;
+      margin-bottom: 24px;
     }
 
     /* Footer */
-    footer { padding: 48px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; }
-    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    footer a { color: var(--text); text-decoration: none; }
-    footer a:hover { color: var(--accent); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--text); }
 
-    /* Toast Notification for Copying */
+    /* Toast */
     #toast {
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background: var(--accent);
-      color: #03140b;
+      background: #ffffff;
+      color: #090a0f;
       font-weight: 600;
+      font-size: 0.88rem;
       padding: 10px 18px;
       border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
       display: none;
       z-index: 100;
-      font-size: 0.9rem;
     }
 
-    @media (max-width: 640px) {
-      .btn-group { flex-direction: column; }
-      nav a { margin-left: 14px; font-size: 0.86rem; }
-      .contact-box { padding: 26px; }
-      footer .wrap { flex-direction: column; align-items: flex-start; }
+    @media (max-width: 600px) {
+      .hero { padding: 48px 0 36px; }
+      .btn-group { flex-direction: column; width: 100%; }
+      .btn { width: 100%; }
+      .project-content { padding: 20px; }
+      .contact-card { padding: 24px 20px; }
+      nav a { font-size: 0.84rem; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap">
-    <a href="#" class="brand">
-      Philip Adeoye
-      <span class="status-badge"><span class="status-dot"></span> Available for Q4 Builds</span>
-    </a>
+  <div class="wrap header-inner">
+    <a href="#" class="logo">Philip Adeoye</a>
     <nav>
       <a href="#work">Work</a>
       <a href="#services">Services</a>
-      <a href="#process">Process</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<main>
-  <!-- Hero Section -->
-  <div class="wrap hero">
-    <div class="hero-eyebrow">
-      <span>●</span> FULL-STACK WEB &amp; AUTOMATION DEVELOPER
-    </div>
-    <h1>I engineer fast websites and automated bots that convert.</h1>
-    <p>Specializing in modern React web applications, Paystack payment workflows, and high-uptime WhatsApp &amp; Telegram automation for businesses, creators, and agency partners.</p>
+<main class="wrap">
+  <!-- Hero -->
+  <section class="hero" style="border-top: none;">
+    <h1>Philip Adeoye</h1>
+    <p class="hero-lead">I build responsive websites, web applications, and custom messaging bots. Focused on clean user experience, solid performance, and dependable delivery.</p>
     <div class="btn-group">
-      <a class="btn primary" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20I%20reviewed%20your%20portfolio%20and%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener">
-        Discuss a Project on WhatsApp →
+      <a class="btn primary" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20I%20have%20a%20project%20I%27d%20like%20to%20discuss." target="_blank" rel="noopener">
+        Chat on WhatsApp
       </a>
-      <a class="btn secondary" href="#work">Explore Selected Work</a>
+      <a class="btn" href="#work">
+        View Projects
+      </a>
     </div>
-  </div>
+  </section>
 
-  <!-- Work Section -->
+  <!-- Work -->
   <section id="work">
-    <div class="wrap">
-      <div class="section-header">
-        <div class="section-tag">// SELECTED BUILDS</div>
-        <h2>Production Work &amp; Functional Proof</h2>
-        <p class="sub">Shipped applications featuring real-world payments, audio synthesis, and automated messaging engines.</p>
+    <div class="section-head">
+      <h2>Selected Work</h2>
+      <p>A few web applications and bots I've built and shipped.</p>
+    </div>
+
+    <div class="work-grid">
+
+      <!-- Teda Foods -->
+      <div class="project-card split">
+        <div class="project-img">
+          <img src="assets/teda-foods.png" alt="Teda Foods food ordering site preview" loading="lazy">
+        </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3 class="project-title">Teda Foods</h3>
+            <span class="project-type">E-Commerce</span>
+          </div>
+          <p class="project-desc">Online food-ordering site for a campus kitchen. Customers can browse meals, add items into a tray, pay online, or route their complete order directly through WhatsApp.</p>
+          <div class="tags">
+            <span>React</span><span>Paystack Checkout</span><span>WhatsApp Ordering</span><span>Responsive</span>
+          </div>
+          <div class="project-links">
+            <a class="primary-link" href="https://teda-foods.vercel.app" target="_blank" rel="noopener">Visit Live Site ↗</a>
+            <a href="https://github.com/philem247/teda-foods" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
       </div>
 
-      <div class="grid">
-        <!-- Project 1: Teda Foods -->
-        <div class="card">
-          <h3>Teda Foods</h3>
-          <p>Online food ordering web platform engineered for a campus kitchen. Features an interactive meal selection tray, seamless Paystack card/transfer checkout, and direct WhatsApp order dispatch.</p>
-          <div class="tags">
-            <span>React</span><span>Paystack API</span><span>WhatsApp Checkout</span><span>Mobile-First</span>
-          </div>
-          <div class="card-footer">
-            <a class="link" href="https://teda-foods.vercel.app" target="_blank" rel="noopener">Live Demo ↗</a>
-            <span class="badge-sub">E-Commerce Flow</span>
+      <!-- WhatsApp Bots -->
+      <div class="project-card split reverse">
+        <div class="project-img">
+          <div class="bot-dual-preview">
+            <img src="assets/goalnotif.jpg" alt="GoalNotif WhatsApp bot command list" loading="lazy">
+            <img src="assets/wcg-bot.jpg" alt="WCG Community game bot on WhatsApp" loading="lazy">
           </div>
         </div>
-
-        <!-- Project 2: WhatsApp Automation -->
-        <div class="card">
-          <h3>GoalNotif &amp; Community Bots</h3>
-          <p>Production WhatsApp automation engine built with Node.js and the Baileys protocol. Dispatches live sports match updates, automated group announcements, and interactive trivia games with 24/7 PM2 uptime.</p>
-          <div class="tags">
-            <span>Node.js</span><span>Baileys (WA API)</span><span>PM2</span><span>Event Dispatcher</span>
+        <div class="project-content">
+          <div class="project-header">
+            <h3 class="project-title">WhatsApp Bots &amp; Automation</h3>
+            <span class="project-type">Node.js Automation</span>
           </div>
-          <div class="card-footer">
-            <a class="link" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20can%20I%20see%20a%20demo%20of%20your%20WhatsApp%20bots%3F" target="_blank" rel="noopener">Request Bot Demo ↗</a>
-            <span class="badge-sub">Chat Automation</span>
+          <p class="project-desc">Automated WhatsApp bots built with Node.js and Baileys. Features real-time match notification dispatching (GoalNotif) and interactive group games (trivia, word scramble, quizzes) running reliably 24/7.</p>
+          <div class="tags">
+            <span>Node.js</span><span>Baileys</span><span>PM2</span><span>Automated Messaging</span>
+          </div>
+          <div class="project-links">
+            <a class="primary-link" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20can%20you%20show%20me%20a%20demo%20of%20your%20WhatsApp%20bots%3F" target="_blank" rel="noopener">Request Bot Demo ↗</a>
+            <a href="https://github.com/philem247/wcg-bot" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </div>
+      </div>
 
-        <!-- Project 3: Focus Flow -->
-        <div class="card">
-          <h3>Focus Flow</h3>
-          <p>Minimalist deep-work companion web app. Integrates custom web audio synthesis soundscapes, Pomodoro interval algorithms, reactive tilt micro-interactions, and dark mode optimization.</p>
+      <!-- Focus Flow -->
+      <div class="project-card split">
+        <div class="project-img">
+          <img src="assets/focus-flow.png" alt="Focus & Flow productivity timer preview" loading="lazy">
+        </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3 class="project-title">Focus &amp; Flow</h3>
+            <span class="project-type">Web Application</span>
+          </div>
+          <p class="project-desc">Study and productivity companion with customizable interval timers, an integrated audio engine for ambient soundscapes, productivity streak heatmaps, and clean dark/light modes.</p>
           <div class="tags">
             <span>React 19</span><span>Tailwind CSS</span><span>Web Audio API</span><span>Vite</span>
           </div>
-          <div class="card-footer">
-            <a class="link" href="https://focus-flowff.vercel.app" target="_blank" rel="noopener">Live Demo ↗</a>
-            <span class="badge-sub">Productivity Suite</span>
+          <div class="project-links">
+            <a class="primary-link" href="https://focus-flowff.vercel.app" target="_blank" rel="noopener">Visit Live Site ↗</a>
+            <a href="https://github.com/philem247" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </div>
+      </div>
 
-        <!-- Project 4: SpellForge / SabiSpell -->
-        <div class="card">
-          <h3>SpellForge</h3>
-          <p>Interactive spelling bee and vocabulary engine. Powered by on-device speech synthesis, dynamic dictionary API data handling, structured game loops, and Supabase cloud state persistence.</p>
+      <!-- SpellForge -->
+      <div class="project-card split reverse">
+        <div class="project-img">
+          <img src="assets/spellforge.png" alt="SpellForge spelling game preview" loading="lazy">
+        </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3 class="project-title">SpellForge</h3>
+            <span class="project-type">Interactive Game</span>
+          </div>
+          <p class="project-desc">Vocabulary and spelling game with voice synthesis integration. Features dynamic dictionary lookups, structured difficulty tiers, XP progression, and cloud-synced leaderboards.</p>
           <div class="tags">
-            <span>React Native / Web</span><span>Expo Speech</span><span>Supabase</span><span>Lexicon API</span>
+            <span>React Native / Web</span><span>Expo Speech</span><span>Supabase</span><span>Dictionary API</span>
           </div>
-          <div class="card-footer">
-            <a class="link" href="https://spell-forgee.vercel.app" target="_blank" rel="noopener">Live Demo ↗</a>
-            <span class="badge-sub">EdTech Platform</span>
+          <div class="project-links">
+            <a class="primary-link" href="https://spell-forgee.vercel.app" target="_blank" rel="noopener">Visit Live Site ↗</a>
+            <a href="https://github.com/philem247/SabiSpell-V1" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Services -->
   <section id="services">
-    <div class="wrap">
-      <div class="section-header">
-        <div class="section-tag">// SOLUTIONS</div>
-        <h2>What I Deliver</h2>
-        <p class="sub">Tailored engineering for business owners, creators, and agency partners looking for dependable delivery.</p>
+    <div class="section-head">
+      <h2>Services &amp; Pricing</h2>
+      <p>Straightforward rates. Send your brief or requirements for a quick quote.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Landing Pages</h3>
+        <div class="service-rate">From ₦25,000</div>
+        <p class="service-desc">Single-page websites built for clarity and speed. Optimized for mobile viewports and direct conversion.</p>
+        <ul class="service-points">
+          <li>Mobile-first responsive layout</li>
+          <li>WhatsApp or contact button integration</li>
+          <li>Free deployment on Vercel</li>
+        </ul>
       </div>
 
-      <div class="grid">
-        <div class="card">
-          <h3>High-Converting Landing Pages</h3>
-          <div class="rate-badge">From ₦25,000 / Custom Quote</div>
-          <p>Snappy, responsive single-page websites optimized for mobile screens, fast global loading, and clear conversion paths.</p>
-          <ul class="checklist">
-            <li>Mobile-first design (Tailwind / React)</li>
-            <li>Direct WhatsApp and lead capture flows</li>
-            <li>Free deployment on fast global CDN</li>
-          </ul>
-        </div>
+      <div class="service-card">
+        <h3>Multi-Page Websites</h3>
+        <div class="service-rate">₦15,000 / page</div>
+        <p class="service-desc">Multi-page sites and web applications with structured content, forms, and payment checkouts where required.</p>
+        <ul class="service-points">
+          <li>Custom forms &amp; payment gateway setup</li>
+          <li>Structured navigation &amp; clean code</li>
+          <li>2 rounds of revisions included</li>
+        </ul>
+      </div>
 
-        <div class="card">
-          <h3>Multi-Page Web Applications</h3>
-          <div class="rate-badge">From ₦15,000 / page</div>
-          <p>Structured web platforms featuring product catalogs, forms, dynamic state, and payment integrations.</p>
-          <ul class="checklist">
-            <li>Paystack payment gateway integration</li>
-            <li>Database &amp; backend setup (Supabase / Node)</li>
-            <li>2 thorough revision rounds included</li>
-          </ul>
-        </div>
+      <div class="service-card">
+        <h3>WhatsApp &amp; Telegram Bots</h3>
+        <div class="service-rate">Priced by features</div>
+        <p class="service-desc">Automated chat workflows that respond to customer inquiries, send automated alerts, or run interactive group commands.</p>
+        <ul class="service-points">
+          <li>Automated menu &amp; reply flows</li>
+          <li>Order notifications &amp; alert routing</li>
+          <li>Setup, hosting guide, and support</li>
+        </ul>
+      </div>
+    </div>
 
-        <div class="card">
-          <h3>WhatsApp &amp; Telegram Bots</h3>
-          <div class="rate-badge">Priced by Feature Scope</div>
-          <p>Automated chat workflows that handle inbound customer inquiries, order processing, and scheduled broadcast notifications.</p>
-          <ul class="checklist">
-            <li>Automated FAQ &amp; menu routing</li>
-            <li>Order alerts &amp; customer database logging</li>
-            <li>Server setup and deployment guidance</li>
-          </ul>
+    <div style="margin-top: 36px;">
+      <h3 style="font-size: 1.15rem; margin-bottom: 12px; font-weight: 600;">How I Work</h3>
+      <div class="process-grid">
+        <div class="process-item">
+          <div class="process-num">01</div>
+          <h4>Brief</h4>
+          <p>You send the outline of what you need, your content, and your deadline.</p>
+        </div>
+        <div class="process-item">
+          <div class="process-num">02</div>
+          <h4>Terms</h4>
+          <p>We confirm the scope and price. 50% deposit upfront before build starts.</p>
+        </div>
+        <div class="process-item">
+          <div class="process-num">03</div>
+          <h4>Preview</h4>
+          <p>You review a working live preview link and request your revisions.</p>
+        </div>
+        <div class="process-item">
+          <div class="process-num">04</div>
+          <h4>Handoff</h4>
+          <p>Final sign-off, remaining balance, and deployment to your domain.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Process Section -->
-  <section id="process">
-    <div class="wrap">
-      <div class="section-header">
-        <div class="section-tag">// EXECUTION</div>
-        <h2>How We Work Together</h2>
-        <p class="sub">Predictable milestones, transparent communication, and zero guesswork.</p>
-      </div>
-
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-num">01 // DISCOVERY</div>
-          <h3>Project Brief</h3>
-          <p>You share your target objectives, required pages or features, and your target launch date.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">02 // COMMITMENT</div>
-          <h3>Scope &amp; Terms</h3>
-          <p>We lock in the deliverables, timeline, and terms (50% upfront deposit) with complete clarity.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">03 // STAGING</div>
-          <h3>Interactive Preview</h3>
-          <p>You test a working live preview on Vercel to inspect layout, test interactions, and request adjustments.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">04 // DELIVERY</div>
-          <h3>Launch &amp; Handover</h3>
-          <p>Final balance, DNS domain connection, and clean delivery of code or hosting handover.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact">
-    <div class="wrap">
-      <div class="contact-box">
-        <div class="section-tag">// INITIATE CONTACT</div>
-        <h2 style="margin: 8px 0 12px;">Ready to build your next project?</h2>
-        <p class="sub" style="margin-bottom: 28px; max-width: 54ch;">
-          Whether you have a brand-new project brief or need an extra developer for agency overflow, I deliver on time and within scope.
-        </p>
-
-        <div class="btn-group">
-          <a class="btn primary" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20I%20reviewed%20your%20portfolio%20and%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener">
-            Chat Directly on WhatsApp (+234 913 712 3224) →
-          </a>
-          <button class="btn secondary" onclick="copyEmail()">
-            Copy Email (philipadeoye247@gmail.com)
-          </button>
-          <a class="btn secondary" href="https://github.com/philem247" target="_blank" rel="noopener">
-            GitHub (philem247) ↗
-          </a>
-        </div>
+    <div class="contact-card">
+      <h2>Let's talk about your project</h2>
+      <p>Have an idea to build, or need a dependable developer for overflow client work? Send a message on WhatsApp or email.</p>
+      <div class="btn-group">
+        <a class="btn primary" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20I%20have%20a%20project%20I%27d%20like%20to%20discuss." target="_blank" rel="noopener">
+          Chat on WhatsApp (+234 913 712 3224)
+        </a>
+        <button class="btn" onclick="copyEmail()">
+          Copy Email (philipadeoye247@gmail.com)
+        </button>
+        <a class="btn" href="https://github.com/philem247" target="_blank" rel="noopener">
+          GitHub Profile ↗
+        </a>
       </div>
     </div>
   </section>
@@ -527,21 +669,21 @@
 
 <footer>
   <div class="wrap">
-    <div>&copy; <span id="y"></span> Philip Adeoye. Full-Stack Web &amp; Automation Developer.</div>
-    <div>Designed for speed, clarity, and client conversion.</div>
+    <div>&copy; <span id="year"></span> Philip Adeoye</div>
+    <div><a href="#work">Back to top ↑</a></div>
   </div>
 </footer>
 
-<div id="toast">Email copied to clipboard!</div>
+<div id="toast">Email copied to clipboard</div>
 
 <script>
-  document.getElementById('y').textContent = new Date().getFullYear();
+  document.getElementById('year').textContent = new Date().getFullYear();
 
   function copyEmail() {
     navigator.clipboard.writeText('philipadeoye247@gmail.com').then(() => {
       const toast = document.getElementById('toast');
       toast.style.display = 'block';
-      setTimeout(() => { toast.style.display = 'none'; }, 2500);
+      setTimeout(() => { toast.style.display = 'none'; }, 2400);
     }).catch(() => {
       window.location.href = 'mailto:philipadeoye247@gmail.com';
     });
@@ -549,4 +691,3 @@
 </script>
 </body>
 </html>
-
