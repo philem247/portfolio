@@ -116,10 +116,27 @@
     .bar .btn { min-height: 48px; padding: 0 18px; }
 
     /* Hero */
-    .hero { padding-block: 56px 64px; }
-    .hero h1 { font-size: clamp(2.25rem, 9.5vw, 4.6rem); max-width: 16ch; margin-bottom: 20px; }
-    .hero p { color: var(--muted); font-size: 1.125rem; max-width: 34ch; margin-bottom: 32px; }
+    .hero { padding-block: 28px 0; display: grid; gap: 28px; }
+    .hero h1 { font-size: clamp(2.1rem, 9.4vw, 3.9rem); line-height: 1.02; max-width: 15ch; margin-bottom: 20px; }
+    .hero p { color: var(--muted); font-size: 1.125rem; max-width: 34ch; margin-bottom: 28px; }
     .actions { display: flex; flex-direction: column; gap: 12px; }
+    .kinds { list-style: none; display: flex; gap: 0; margin-top: 24px; margin-bottom: 4px; border-top: 1px solid var(--rule); counter-reset: k; }
+    .kinds li { flex: 1; padding: 12px 8px 0 0; font-size: .9rem; font-weight: 500; line-height: 1.3; counter-increment: k; }
+    .kinds li::before { content: "0" counter(k); display: block; font: 700 .8rem var(--display); color: var(--accent); letter-spacing: .08em; margin-bottom: 4px; }
+    .stage { position: relative; height: 340px; margin-inline: calc(var(--gutter) * -1); border-block: 1px solid var(--rule); overflow: hidden;
+      background: radial-gradient(var(--rule) 1px, transparent 1.5px) 0 0 / 18px 18px, var(--panel); }
+    .stage::before { content: ""; position: absolute; left: 50%; bottom: -40%; width: 120%; aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%; background: var(--accent); opacity: .16; }
+    .phone-frame { position: absolute; bottom: -2px; width: 44%; max-width: 230px; border: 6px solid var(--text); border-bottom: 0; border-radius: 28px 28px 0 0; overflow: hidden; background: var(--bg); box-shadow: 0 10px 40px rgba(10, 30, 22, .25); }
+    .phone-frame img { width: 100%; aspect-ratio: 340 / 560; object-fit: cover; object-position: top; border-radius: 0; }
+    .phone-frame.a { left: 12%; height: 86%; transform: rotate(-3deg); transform-origin: bottom left; }
+    .phone-frame.b { right: 12%; height: 70%; transform: rotate(2.5deg); transform-origin: bottom right; }
+    .phone-frame.a img, .phone-frame.b img { height: 100%; aspect-ratio: auto; }
+    .tag { position: absolute; left: var(--gutter); top: 16px; z-index: 2; font: 600 .75rem var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+    .rise { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--i, 0) * 90ms); }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+    .phone-frame.a.rise { animation-name: riseA; } .phone-frame.b.rise { animation-name: riseB; }
+    @keyframes riseA { from { opacity: 0; transform: translateY(40px) rotate(-3deg); } }
+    @keyframes riseB { from { opacity: 0; transform: translateY(40px) rotate(2.5deg); } }
 
     /* Sections */
     section { padding: 64px 0; border-top: 1px solid var(--rule); }
@@ -173,7 +190,12 @@
     @media (min-width: 720px) {
       :root { --gutter: 32px; }
       nav { display: flex; }
-      .hero { padding-block: 96px 104px; }
+      .hero { padding-block: 64px 0; grid-template-columns: 6fr 5fr; gap: 56px; align-items: end; }
+      .hero-copy { padding-bottom: 64px; }
+      .hero h1 { max-width: 14ch; }
+      .stage { height: 500px; margin: 0; border: 1px solid var(--rule); border-bottom: 0; border-radius: var(--r) var(--r) 0 0; }
+      .phone-frame { width: 46%; }
+      .phone-frame.a { left: 6%; } .phone-frame.b { right: 6%; }
       .actions { flex-direction: row; }
       section { padding: 88px 0; }
       .contact .actions { flex-wrap: wrap; }
@@ -200,6 +222,7 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       * { transition: none !important; }
+      .rise { animation: none; }
     }
   </style>
 </head>
@@ -225,15 +248,25 @@
 
 <main>
   <div class="wrap hero">
-    <div class="eyebrow">Philip Adeoye, web developer</div>
-    <h1><span class="soft">I build</span> responsive websites, web applications, <span class="soft">and</span> custom messaging bots.</h1>
-    <p>Clean user experience, solid performance, and dependable delivery.</p>
-    <div class="actions">
-      <a class="btn primary" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20I%20have%20a%20project%20I%27d%20like%20to%20discuss." target="_blank" rel="noopener">
-        <i class="hgi-stroke hgi-whatsapp" aria-hidden="true"></i>
-        Chat on WhatsApp
-      </a>
-      <a class="btn" href="#work">View projects</a>
+    <div class="hero-copy">
+      <div class="eyebrow rise">Philip Adeoye, web developer</div>
+      <h1 class="rise" style="--i:1"><span class="soft">I build</span> responsive websites, web applications, <span class="soft">and</span> custom messaging bots.</h1>
+      <p class="rise" style="--i:2">Clean user experience, solid performance, and dependable delivery.</p>
+      <div class="actions rise" style="--i:3">
+        <a class="btn primary" href="https://wa.me/2349137123224?text=Hi%20Philip%2C%20I%20have%20a%20project%20I%27d%20like%20to%20discuss." target="_blank" rel="noopener">
+          <i class="hgi-stroke hgi-whatsapp" aria-hidden="true"></i>
+          Chat on WhatsApp
+        </a>
+        <a class="btn" href="#work">View projects</a>
+      </div>
+      <ul class="kinds rise" style="--i:4">
+        <li>Websites</li><li>Web apps</li><li>Messaging bots</li>
+      </ul>
+    </div>
+    <div class="stage" aria-label="Project previews">
+      <span class="tag">Recent work</span>
+      <div class="phone-frame a rise" style="--i:3"><img src="assets/teda-foods.png" width="340" height="747" alt="Teda Foods ordering site on a phone"></div>
+      <div class="phone-frame b rise" style="--i:4"><img src="assets/goalnotif.jpg" width="642" height="1024" alt="GoalNotif WhatsApp bot command list"></div>
     </div>
   </div>
 
